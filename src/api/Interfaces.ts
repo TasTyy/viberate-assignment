@@ -1,4 +1,4 @@
-export interface Navbar {
+export interface INavbar {
     artist_name: string;
     artist_uuid: string;
 }
@@ -27,7 +27,7 @@ interface RankCategories {
     };
 }
 
-export interface Artist {
+export interface IArtist {
     uuid: string;
     slug: string;
     name: string;
