@@ -1,9 +1,14 @@
-export interface SocialLink {
+export interface Navbar {
+    artist_name: string;
+    artist_uuid: string;
+}
+
+interface SocialLink {
     channel: string;
     link: string;
 }
 
-export interface RankCategories {
+interface RankCategories {
     current: {
         overall: number;
         country: number;
