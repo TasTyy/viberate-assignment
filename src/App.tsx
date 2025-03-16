@@ -1,35 +1,65 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import "./styles/styles.css";
+import { Navbar } from "./api/Interfaces";
+import { getNavbar } from "./api/api";
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [navbarData, setNavbarData] = useState<Navbar[]>([]);
+    // const [artist, setArtist] = useState<Artist>();
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    useEffect(() => {
+        async function fetchData() {
+            const data = await getNavbar();
+            setNavbarData(data);
+        }
+        fetchData();
+    }, []);
+
+    return (
+        <>
+            {/* container */}
+            <div className="container">
+                {/* HEADER */}
+                <header className="header">
+                    {/* page */}
+                    <div className="page">
+                        <a href="#" className="logo">
+                            <img src="./assets/svg/logo-v.svg" alt="Viberate" />
+                            Viberate
+                        </a>
+
+                        <nav className="navigation-primary">
+                            <ul className="menu-sys">
+                                <li>
+                                    <button className="btn btn-menu search">
+                                        Search
+                                    </button>
+                                </li>
+                                <li>
+                                    <button className="btn btn-menu more">
+                                        More
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <ul className="menu">
+                                {navbarData.map((navItem) => (
+                                    <li key={navItem.artist_uuid}>
+                                        <a href={`#${navItem.artist_uuid}`}>
+                                            {navItem.artist_name}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </nav>
+                    </div>
+                    {/* /page */}
+                </header>
+                {/* /HEADER */}
+            </div>
+            {/* /container */}
+        </>
+    );
 }
 
-export default App
+export default App;
