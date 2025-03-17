@@ -57,25 +57,25 @@ const BeatportRankSchema = z.object({
 });
 
 // Rank categories
-export const RankCategoriesSchema = z.object({
+const RankCategoriesSchema = z.object({
     current: GenericRankSchema,
     previous: GenericRankSchema,
 });
 
 // Social Link
-export const SocialLinkSchema = z.object({
+const SocialLinkSchema = z.object({
     channel: z.string(),
     link: z.string(),
 });
 
 // Beatport Genre
-export const BeatportGenreSchema = z.object({
+const BeatportGenreSchema = z.object({
     id: z.number(),
     name: z.string(),
 });
 
 // Channel Ranks
-export const ChannelRanksSchema = z.object({
+const ChannelRanksSchema = z.object({
     airplay: z.object({
         current: GenericRankSchema,
         previous: GenericRankSchema,
@@ -99,7 +99,7 @@ export const ChannelRanksSchema = z.object({
 });
 
 // Analytics
-export const AnalyticsSchema = z.object({
+const AnalyticsSchema = z.object({
     airplay: z.boolean(),
     audience: z.boolean(),
     basic: z.boolean(),
@@ -123,7 +123,7 @@ export const AnalyticsSchema = z.object({
 });
 
 // Most Popular
-export const MostPopularSchema = z.object({
+const MostPopularSchema = z.object({
     city: z.string(),
     value: z.string(),
 });
