@@ -23,7 +23,7 @@ This is a React-based web application that displays artist data using dynamic vi
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/your-username/viberate-assignment.git
+    git clone https://github.com/TasTyy/viberate-assignment.git
     cd viberate-assignment
     ```
 
