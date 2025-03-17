@@ -8,13 +8,13 @@ export const navbarSchema = z.array(
 );
 
 // Coordinates
-export const CoordinatesSchema = z.object({
+const CoordinatesSchema = z.object({
     lat: z.number(),
     lng: z.number(),
 });
 
 // Country
-export const CountrySchema = z.object({
+const CountrySchema = z.object({
     code: z.string(),
     iso3: z.string(),
     slug: z.string(),
@@ -24,23 +24,22 @@ export const CountrySchema = z.object({
 });
 
 // Genre
-export const GenreSchema = z.object({
+const GenreSchema = z.object({
     id: z.number(),
     slug: z.string(),
     name: z.string(),
-    // This can be null or an array; adjust the inner type if needed
     subgenres: z.union([z.array(z.any()), z.null()]),
 });
 
 // Subgenre
-export const SubgenreSchema = z.object({
+const SubgenreSchema = z.object({
     id: z.number(),
     slug: z.string(),
     name: z.string(),
 });
 
 // Rank (for channels like airplay, social, spotify, youtube)
-export const GenericRankSchema = z.object({
+const GenericRankSchema = z.object({
     genre: z.number().optional(),
     country: z.number(),
     overall: z.number(),
@@ -49,7 +48,7 @@ export const GenericRankSchema = z.object({
 });
 
 // Rank (for beatport)
-export const BeatportRankSchema = z.object({
+const BeatportRankSchema = z.object({
     country: z.number(),
     overall: z.number(),
     subgenre_1: z.number(),

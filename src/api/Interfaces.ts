@@ -1,11 +1,21 @@
-// Interfaces.ts
+export interface INavbar {
+    artist_name: string;
+    artist_uuid: string;
+}
 
-export interface ICoordinates {
+export interface IGraphData {
+    id: string;
+    label: string;
+    value: number;
+    color: string;
+}
+
+interface ICoordinates {
     lat: number;
     lng: number;
 }
 
-export interface ICountry {
+interface ICountry {
     code: string;
     iso3: string;
     slug: string;
@@ -14,47 +24,43 @@ export interface ICountry {
     continent_code: string;
 }
 
-export interface IGenre {
-    id: number;
-    slug: string;
-    name: string;
-    subgenres: null | any;
-}
-
-export interface ISubgenre {
+interface IGenre {
     id: number;
     slug: string;
     name: string;
 }
 
-export interface ICurrentRank {
+interface ISubgenre {
+    id: number;
+    slug: string;
+    name: string;
+}
+
+interface ICurrentRank {
     overall: number;
     country: number;
-    // Note: beatport channel does not include genre so make it optional
     genre?: number;
     subgenre_1: number;
     subgenre_2: number | null;
-    // Some channels (beatport) include a third subgenre rank
     subgenre_3?: number | null;
 }
 
-export interface IRankCategories {
+interface IRankCategories {
     current: ICurrentRank;
     previous: ICurrentRank;
 }
 
-export interface ISocialLink {
+interface ISocialLink {
     channel: string;
     link: string;
 }
 
-export interface IBeatportGenre {
+interface IBeatportGenre {
     id: number;
     name: string;
 }
 
-export interface IChannelRankGeneric {
-    // For channels like airplay, social, spotify, and youtube
+interface IChannelRankGeneric {
     genre?: number;
     country: number;
     overall: number;
@@ -62,8 +68,7 @@ export interface IChannelRankGeneric {
     subgenre_2: number | null;
 }
 
-export interface IChannelRankBeatport {
-    // Beatport includes an extra subgenre rank and no genre key
+interface IChannelRankBeatport {
     country: number;
     overall: number;
     subgenre_1: number;
@@ -71,7 +76,7 @@ export interface IChannelRankBeatport {
     subgenre_3: number;
 }
 
-export interface IChannelRanks {
+interface IChannelRanks {
     airplay: {
         current: IChannelRankGeneric;
         previous: IChannelRankGeneric;
@@ -94,7 +99,7 @@ export interface IChannelRanks {
     };
 }
 
-export interface IAnalytics {
+interface IAnalytics {
     airplay: boolean;
     audience: boolean;
     basic: boolean;
@@ -136,13 +141,11 @@ export interface IArtist {
     verified: boolean;
     claimed: boolean;
     trending: boolean;
-    badges: any;
     social_links: ISocialLink[];
     status: string;
     booking_available: boolean;
     contact_available: boolean;
     meta_image: string;
-    hot_on_charts: any;
     created_at: string;
     beatport_genres: IBeatportGenre[];
     channel_ranks: IChannelRanks;
