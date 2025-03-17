@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getArtist } from "../api/api";
 import { IArtist } from "../api/Interfaces";
 import Graph from "./Graph";
+import "../styles/styles.css";
 
 export default function ArtistCard() {
     const { id } = useParams();
