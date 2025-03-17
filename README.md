@@ -2,6 +2,8 @@
 
 This is a React-based web application that displays artist data using dynamic visualizations. The project utilizes **React 18**, **React Router**, **Axios**, **Zod** and **Nivo Charts** for interactive data visualization.
 
+**Link to deployed website**: [vibrate-assignment](https://viberate-assignment.netlify.app)
+
 ## Features
 
 -   **Navigation Bar**: Allows users to select an artist.
