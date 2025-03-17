@@ -1,18 +1,19 @@
 # Viberate Assignment
 
-This is a React-based web application that displays artist data using dynamic visualizations. The project utilizes **React 19**, **React Router**, and **Nivo Charts** for interactive data visualization.
+This is a React-based web application that displays artist data using dynamic visualizations. The project utilizes **React 18**, **React Router**, **Axios**, **Zod** and **Nivo Charts** for interactive data visualization.
 
 ## Features
 
 -   **Navigation Bar**: Allows users to select an artist.
 -   **Artist Details**: Displays detailed information about the selected artist.
 -   **Pie Chart Visualization**: Represents popularity data in different cities.
--   **Dynamic Styling**: Uses color generation for enhanced visuals.
 
 ## Tech Stack
 
--   **React 19**
+-   **React 18**
 -   **React Router** (for client-side routing)
+-   **Axios** (For making API requests and handling responses efficiently)
+-   **Zod** (For API response data type validation)
 -   **Nivo Charts** (for data visualization)
 -   **TypeScript** (for static type checking)
 -   **CSS Modules / LESS** (for styling)
@@ -106,6 +107,32 @@ This project fetches artist data from an API. The artist data structure follows 
         { "city": "Maribor", "value": "22" }
     ]
 }
+```
+
+### Axios
+
+Axios is used to handle API requests efficiently with support for promises and error handling. It simplifies data fetching and provides interceptors for managing requests and responses.
+
+```typescript
+export async function getNavbar() {
+    const res = await axios.get(`/navbar`);
+    const data = res.data as INavbar[];
+
+    return navbarSchema.parse(data);
+}
+```
+
+### Zod
+
+Zod is used for validating API responses, ensuring the data structure is as expected. This helps prevent runtime errors due to incorrect or missing data.
+
+```typescript
+export const navbarSchema = z.array(
+    z.object({
+        artist_name: z.string(),
+        artist_uuid: z.string(),
+    })
+);
 ```
 
 ## Future Improvements
