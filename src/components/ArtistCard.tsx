@@ -9,7 +9,7 @@ export default function ArtistCard() {
 
     useEffect(() => {
         async function fetchData() {
-            const data = await getArtist(id);
+            const data = await getArtist(id!);
             setArtist(data);
         }
         fetchData();
