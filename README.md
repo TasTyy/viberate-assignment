@@ -12,8 +12,8 @@ This is a React-based web application that displays artist data using dynamic vi
 
 -   **React 18**
 -   **React Router** (for client-side routing)
--   **Axios** (For making API requests and handling responses efficiently)
--   **Zod** (For API response data type validation)
+-   **Axios** (for API requests and handling responses efficiently)
+-   **Zod** (for API response data type validation)
 -   **Nivo Charts** (for data visualization)
 -   **TypeScript** (for static type checking)
 -   **CSS Modules / LESS** (for styling)
