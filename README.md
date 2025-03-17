@@ -19,6 +19,7 @@ This is a React-based web application that displays artist data using dynamic vi
 -   **Nivo Charts** (for data visualization)
 -   **TypeScript** (for static type checking)
 -   **CSS Modules / LESS** (for styling)
+-   **Netlify** (for website deployment)
 
 ## Installation
 
